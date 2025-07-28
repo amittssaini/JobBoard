@@ -1,5 +1,6 @@
 import linkdin from "../assets/linkdin.png";
 import naukari from "../assets/naukari.png";
+import hr from "../assets/hr.png";
 const jobs = [
   {
     title: "UX/UI Designer",
@@ -23,7 +24,24 @@ const jobs = [
     tags: ["Node.js", "Hybrid"],
     location: "Pune",
     posted: "6 Days ago",
-    logo: linkdin
+    logo: linkdin,
+    hiringTeam:{
+      name:"Emma Watson",
+       connectionLevel: "3rd",
+      verified: true,
+      profileImage: hr,
+      roleSummary: [
+        "Digital Transformation",
+        "Digital Strategy",
+        "AI",
+        "MLI Managed Staffing Solutions",
+        "Managed Service Provider/Recruitment Process Outsourcing",
+        "Contingent Workforce Outsourcing",
+        "Product Development",
+        "Angel"
+      ],
+      messageButton: true
+    }
   }
 ];
 

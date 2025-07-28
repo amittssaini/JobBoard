@@ -2,7 +2,7 @@ import React from "react";
 import "./JobCard.css";
 import indeed from "../assets/indeed.png";
 import linkdin from "../assets/linkdin.png"
-import { FaCheck, FaHeart, FaCalendarAlt, FaMapMarkerAlt, FaFlag } from "react-icons/fa";
+import { FaCheck, FaHeart, FaCalendarAlt, FaMapMarkerAlt,FaUserCircle, FaFlag } from "react-icons/fa";
 
 const JobCard = ({ job }) => {
   return (
@@ -39,6 +39,41 @@ const JobCard = ({ job }) => {
           <FaFlag className="icon" /> Report
         </button>
       </div>
+      {job.hiringTeam && (
+  <div className="hiring-team-card">
+    <h3 className="hiring-title">Meet the hiring team</h3>
+
+    <div className="member-card">
+      <div className="profile">
+        <div className="profile-avatar">
+  <FaUserCircle className="profile-icon" />
+  {job.hiringTeam.profileImage && (
+    <img
+      src={job.hiringTeam.profileImage}
+      alt={job.hiringTeam.name}
+      className="profile-image-on-icon"
+    />
+  )}
+</div>
+        <div className="info">
+          <div className="name-row">
+            <strong>{job.hiringTeam.name}</strong>
+            {job.hiringTeam.verified && <FaCheck className="verified-icon" />}
+            <span className="connection-level">• {job.hiringTeam.connectionLevel}</span>
+          </div>
+          <p className="summary">
+            {job.hiringTeam.roleSummary.join(" | ")}
+          </p>
+        </div>
+      </div>
+
+      {job.hiringTeam.messageButton && (
+        <button className="message-button">Message</button>
+      )}
+    </div>
+  </div>
+)}
+
     </div>
   );
 };

@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import SignupImage from "../assets/signup.png"
 import './Signup.css'
 import { enqueueSnackbar } from 'notistack';
+import { config } from '../App';
+import axios from 'axios';
+import { useHistory,Link, useNavigate } from 'react-router-dom';
 const Signup = () => {
     const [formData,setFormData]=useState({
         firstName:"",
@@ -9,8 +12,9 @@ const Signup = () => {
         email:"",
         password:"",
         confirmPassword:""
-
-    })
+   })
+   
+   const navigate = useNavigate();
 
 
 const validateInput = (data) => {
@@ -36,9 +40,9 @@ const validateInput = (data) => {
       enqueueSnackbar("Password is a required field");
     return false;
   }
-    else if(data.password.length<6)
+    else if(data.password.length<5)
     {
-      enqueueSnackbar("Password must be at least 6 characters");
+      enqueueSnackbar("Password must be at least 5 characters");
       return false;
     }
     else if(data.password!==data.confirmPassword)
@@ -52,21 +56,20 @@ const validateInput = (data) => {
 
 
 
-    const register =  (formData) => {
-     
+    const register = async(formData) => {  
     console.log("in the register function ")
-    
         if(!validateInput(formData)){ // to validate or checkpoint the user input 
           return;
           }
         console.log("heyy its true");
         try {
         //   setIsLoading(true); // circular progess start rotating 
-        //   await axios.post(`${config.endpoint}/auth/register`, {
-        //     name: Signup.firstName,
-        //     lastName:formData.lastName,
-        //     password: formData.password,
-        //   });
+          await axios.post(`${config.endpoint}/auth/register`, {
+            firstName: formData.firstName,
+            lastName:formData.lastName,
+            email:formData.email,  
+            password: formData.password,
+          });
         console.log(formData);
           setFormData({
             firstName: "",
@@ -75,11 +78,9 @@ const validateInput = (data) => {
             password: "",
             confirmPassword: "",
           });
-       
-         
           enqueueSnackbar("Registed successfully", { variant: "success" });
  
-        //   history.push("/login");
+          navigate("/");
         } catch (e) {
 
           if (e.response && e.response.status === 400) {
@@ -100,6 +101,7 @@ const validateInput = (data) => {
         e.preventDefault();
         console.log("hello wold");
         console.log(formData);
+        register(formData);
     }
   return (
     <div className="signup-container">

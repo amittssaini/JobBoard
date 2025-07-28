@@ -5,8 +5,8 @@
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;
-    position: sticky;      /* makes it stick while scrolling */
-  top: 60px;             /* height of your navbar */
+    position: sticky;      /*  stick while scrolling */
+  top: 60px;             /* height of  navbar */
   height: calc(100vh - 70px); /* full height minus navbar */
 }
 
@@ -40,7 +40,7 @@
 }
 
 .sidebar-menu li:hover {
-  color: #00ffcc; /* your theme's accent hover color */
+  color: #00ffcc; 
 }
 
 .icon {

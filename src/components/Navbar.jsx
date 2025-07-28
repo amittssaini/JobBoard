@@ -1,7 +1,9 @@
 import React from "react";
-import "./Navbar.css"; // or use Tailwind if preferred
+import "./Navbar.css";
+import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({activeTab,setActiveTab}) => {
+  const navigate = useNavigate();
   return (
     <nav className="navbar">
       <div className="navbar-left">
@@ -10,15 +12,17 @@ const Navbar = () => {
 
       <div className="navbar-center">
         <ul className="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Open Jobs</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li className={activeTab === 'home' ? 'active' : ''} onClick={()=>setActiveTab("home")}>Home</li>
+          <li className={activeTab === 'job' ? 'active' : ''} onClick={()=>setActiveTab("job")}>Open Jobs</li>
+          <li >About Us</li>
+          <li>Contact Us</li>
         </ul>
       </div>
 
       <div className="navbar-right">
-        <button className="logout-btn">Log out</button>
+        <button className="logout-btn" onClick={()=>{
+         navigate('/', { replace: true })
+        }}>Log out</button>
       </div>
     </nav>
   );

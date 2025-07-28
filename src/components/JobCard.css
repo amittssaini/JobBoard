@@ -81,3 +81,102 @@
 .icon {
   margin-right: 4px;
 }
+
+
+.hiring-team-card {
+  background-color: #4b5563; /* darker gray for visual separation */
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hiring-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #f3f4f6;
+}
+
+.member-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.profile-avatar {
+  position: relative;
+  width: 42px;
+  height: 42px;
+}
+
+.profile-icon {
+  font-size: 42px;
+  color: #9ca3af;
+}
+
+.profile-image-on-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.verified-icon {
+  color: #3b82f6; 
+  font-size: 14px;
+}
+
+.connection-level {
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+.summary {
+  font-size: 13px;
+  color: #e5e7eb;
+  line-height: 1.4;
+  max-width: 600px;
+}
+
+.message-button {
+  background-color: #111827;
+  color: #ffffff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.message-button:hover {
+  background-color: #1f2937;
+}

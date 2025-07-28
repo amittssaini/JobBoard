@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import Home from './Home';
@@ -9,13 +9,14 @@ import JobList from './JobList';
 const MainLayout = () => {
   const location = useLocation();
   const { name, email } = location.state || {};
-  
+  const [activeTab,setActiveTab]=useState("job")
+
   return (
     <div className="layout-wrapper">
-      <Navbar />
+      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
       <div className="layout-body">
         <Sidebar name={name} email={email} />
-        <JobList />
+        {(activeTab==="job")?<JobList />:<Home/>}
       </div>
     </div>
   );
