@@ -6,7 +6,7 @@ import Sidebar from "./components/Sidebar";
 import Signup from "./components/Signup";
 import { Routes,Route } from "react-router-dom";
 export const config = {
-  endpoint: `http://localhost:8082/job`,
+  endpoint: `https://job-backend-fh80.onrender.com/job`,
 };
 function App() {
   return (
