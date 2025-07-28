@@ -2,13 +2,13 @@ import React from 'react';
 import { FaSearch, FaHeart, FaBriefcase, FaTachometerAlt, FaUserCircle } from 'react-icons/fa';
 import './Sidebar.css';
 
-const Sidebar = () => {
+const Sidebar = ({name,email}) => {
   return (
     <div className="sidebar">
       <div className="profile-card">
         <FaUserCircle className="profile-icon" />
-        <h4>Tom Hiddleston</h4>
-        <p>tomhidd@gmail.com</p>
+        <h4>{name}</h4>
+        <p>{email}</p>
       </div>
 
       <ul className="sidebar-menu">

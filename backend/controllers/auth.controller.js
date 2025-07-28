@@ -15,7 +15,8 @@ const postLogin=async(req,res)=>{
 try {
     const data = req.body;
     const resp = await authInstance.login(data);
-    res.send(resp)
+    console.log(resp);
+    res.status(resp.status).json({message:resp.message,...(resp.user&&{user:resp.user})});
 } catch (error) {
     
 }

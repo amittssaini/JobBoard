@@ -59,7 +59,7 @@ const validateInput = (data) => {
         if(!validateInput(formData)){ // to validate or checkpoint the user input 
           return;
           }
-    
+        console.log("heyy its true");
         try {
         //   setIsLoading(true); // circular progess start rotating 
         //   await axios.post(`${config.endpoint}/auth/register`, {

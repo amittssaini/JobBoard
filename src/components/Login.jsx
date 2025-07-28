@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./Login.css";
+import { Navigate, useNavigate } from "react-router-dom";
+import axios from 'axios'
 import { useSnackbar } from "notistack";
 import loginImage from "../assets/signup.png"; // replace with your man image path
-
+import { config } from "../App";
 const Login = () => {
     const { enqueueSnackbar } = useSnackbar();
+    const navigate=useNavigate();
     const [formData,setFormData]=useState({
         email:"",
         password:""
@@ -32,29 +35,37 @@ const login=async(formData)=>{
           }
     
         try {
-        //   setIsLoading(true);
-        //    let response =await axios.post(`${config.endpoint}/auth/login`, {
-        //     username: formData.username,
-        //     password: formData.password,
-        //   });
+           let response =await axios.post(`${config.endpoint}/auth/login`, {
+            email: formData.email,
+            password: formData.password,
+          });
           setFormData({
-            username: "",
+            email: "",
             password: "",
           });
-          
-        // console.log(response.data);
+          console.log(response);
+         console.log(response.data);
+         const name = response.data.user.name;
+         const email = response.data.user.email;
+         console.log(name);
+         console.log(email);
         //  let userData = response.data
         // persistLogin(userData.token,userData.username,userData.balance);
     
           enqueueSnackbar("Logged in successfully", { variant: "success" });
         //   setIsLoading(false);
+             navigate("/dashboard",{state:{name,email}});
         //   history.push("/");
           
         } catch (e) {
          // setIsLoading(false);
-          if (e.response && e.response.status === 400) {
+          if ( e.response.status === 404) {
             return enqueueSnackbar(e.response.data.message, { variant: "error" });
-          } else {
+          } 
+          else if(e.response===401){
+                return enqueueSnackbar(e.response.data.message, { variant: "error" });
+          }
+          else {
             enqueueSnackbar(
               "Something went wrong. check that the backend is running, reachable and return valid JSON.",
               { variant: "error" }
@@ -75,7 +86,7 @@ const handleFormInput = (e) => {
   const handleFormSubmit=(e)=>{
     e.preventDefault();
     console.log(formData);
-    //login(formData);
+    login(formData);
   }
   return (
     <div className="login-container">
@@ -85,8 +96,8 @@ const handleFormInput = (e) => {
         <p className="login-subtitle">If you already have an account, please sign in below.</p>
 
         <div className="role-toggle">
-          <button className="active">Admin</button>
-          <button>Student</button>
+          <button disable>Admin</button>
+          <button className="active" >Student</button>
         </div>
 
         <form className="login-form" onSubmit={handleFormSubmit}>
@@ -111,11 +122,11 @@ const handleFormInput = (e) => {
         </form>
 
         <div className="bottom-buttons">
-          <button className="signup-btn">Sign Up</button>
+          <button className="signup-btn" onClick={()=>navigate('/signup')}>Sign Up</button>
         </div>
       </div>
 
-      {/* Image on the right */}
+      
       <div className="login-right">
         <img src={loginImage} alt="Login Visual" />
       </div>

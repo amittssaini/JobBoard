@@ -6,25 +6,41 @@ class Auth{
          const hash = await this.hashPassword(userData.password); 
          const newUserDoc =  new userModel({...userData,password:hash});  
          const resp = await newUserDoc.save();
-         return resp;
+         if(resp){
+         return {
+            status:201,
+            message:"User Sucessfully Regiestered"
+         }
+        }
         } catch (error) {
-            return error.message;
+            return  {
+      status: 500,
+      message: "User registration failed",
+      error: error.message
+    };
         }
     }
     async login(userData){
         try {
             const dbUser= await this.findUser(userData.email);
             if(!dbUser){
-                return "User not Found";
+                return {
+                    status:404,
+                    message:"User not found"
+                };
             }
             console.log("email is paased");
          const verifyPassword = await this.verifyPassword(userData.password,dbUser.password);
          console.log(verifyPassword);
-         if(!verifyPassword) return "User enter wrong password"
-         return "User is Valid & verified "
+         if(!verifyPassword) return {status:401,message:"Incorrect Password"}
+         return {status:200,message:"User verified ",user:{id:dbUser._id,email:dbUser.email,name:dbUser.firstName}}
 
         } catch (error) {
-           return error.message; 
+           return {
+            status: 500,
+            message: "Server error",
+            error: error.message
+        }; 
         }
 
     }
