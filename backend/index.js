@@ -1,9 +1,18 @@
 // backend starting code 
 const express = require('express');
 const authRouter = require('./routes/auth.route')
+const mongoose = require('mongoose')
+require('dotenv').config();
 
 const app = new express();
-const PORT = 8082
-app.listen(PORT,()=>console.log("app is listen at the port ", PORT));
+
+mongoose
+.connect(process.env.DB_URI)
+.then(()=>{
+console.log('DB IS CONNECTED');
+app.listen((process.env.PORT),()=>console.log("SERVER IS CONNECTED AT THE ",process.env.PORT))
+})
+.catch((error)=>console.log("error occur during connection ",error));
+
 app.use(express.json());
 app.use('/job/auth',authRouter);

@@ -6,16 +6,16 @@ try {
     console.log(registerData);
     const ans = await authInstance.register(registerData);
     console.log("constroller return",ans);
-    res.send("hello for the register");
+    res.send(ans);
 } catch (error) {
     
 }
 }
-const postLogin=(req,res)=>{
+const postLogin=async(req,res)=>{
 try {
     const data = req.body;
-    console.log(data);
-    res.send("hello from login ")
+    const resp = await authInstance.login(data);
+    res.send(resp)
 } catch (error) {
     
 }
