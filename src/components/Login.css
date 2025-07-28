@@ -51,8 +51,9 @@
 }
 
 .role-toggle .active {
-  background-color: #00ff95;
-  color: #000;
+    /* background: linear-gradient(to right, #1e2a38, #2e3a4f); */
+  background-color: #2a3144;
+  color:white;
 }
 
 .login-form {
@@ -89,8 +90,8 @@
 }
 
 .login-btn {
-  background-color: #00ff95;
-  color: #000;
+  background-color: #2a3144;
+  color: whitesmoke;
   padding: 12px;
   font-size: 16px;
   border: none;
@@ -109,7 +110,7 @@
   background-color: #fff;
   color: #000;
   padding: 10px 20px;
-  border: 1px solid #00ff95;
+  border: 1px solid #2a3144;
   border-radius: 6px;
   font-weight: 500;
   cursor: pointer;

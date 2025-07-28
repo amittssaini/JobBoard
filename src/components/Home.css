@@ -1,0 +1,97 @@
+.homepage-container {
+  background-color: #2a3144;
+  color: white;
+  padding: 40px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-section {
+  background-color: #2a3144;
+  padding: 20px 40px;
+}
+
+.hero-section h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+}
+
+.hero-section span {
+  color: #a020f0; /* Purple highlight */
+}
+
+.hero-description {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #cbd5e1;
+  max-width: 700px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 10px;
+  border-radius: 6px;
+  width: 300px;
+}
+
+.search-input input {
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+.search-button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.filters select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  background: black;
+  color: white;
+  font-weight: 500;
+}
+
+.resume-section {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  margin-top: 40px;
+  color: #2a3144;
+}
+
+.resume-section h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.resume-section p {
+  margin-top: 8px;
+  color: #4b5563;
+}

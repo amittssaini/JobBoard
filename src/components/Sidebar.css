@@ -1,0 +1,54 @@
+.sidebar {
+  background-color: #2a3144; /* your design spec */
+  color: white;
+  width: 250px;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+    position: sticky;      /* makes it stick while scrolling */
+  top: 60px;             /* height of your navbar */
+  height: calc(100vh - 70px); /* full height minus navbar */
+}
+
+.profile-card {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.profile-card h4 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+}
+
+.profile-card p {
+  font-size: 14px;
+  color: #b0b8c2; /* lighter grey */
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-menu li {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+}
+
+.sidebar-menu li:hover {
+  color: #00ffcc; /* your theme's accent hover color */
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 28px;
+}
+.profile-icon {
+  font-size: 80px;
+  color: white;
+  margin-bottom: 10px;
+}

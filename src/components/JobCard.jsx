@@ -1,0 +1,46 @@
+import React from "react";
+import "./JobCard.css";
+import indeed from "../assets/indeed.png";
+import linkdin from "../assets/linkdin.png"
+import { FaCheck, FaHeart, FaCalendarAlt, FaMapMarkerAlt, FaFlag } from "react-icons/fa";
+
+const JobCard = ({ job }) => {
+  return (
+    <div className="job-card">
+      <div className="job-card-header">
+        <h2>{job.title}</h2>
+        <FaHeart className="heart-icon" />
+      </div>
+
+      <p className="job-description">{job.description}</p>
+
+      <div className="job-tags">
+        {job.tags.map((tag, idx) => (
+          <span className="tag" key={idx}>
+            <FaCheck className="icon" /> {tag}
+          </span>
+        ))}
+      </div>
+
+      {/* Row 1: Location + Logo */}
+      <div className="meta-row">
+        <span className="tag">
+          <FaMapMarkerAlt className="icon" /> {job.location}
+        </span>
+        <img src={job.logo} alt="logo" className="job-logo" />
+      </div>
+
+      {/* Row 2: Calendar + Report Button */}
+      <div className="meta-row">
+        <span className="tag">
+          <FaCalendarAlt className="icon" /> {job.posted}
+        </span>
+        <button className="report-btn">
+          <FaFlag className="icon" /> Report
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default JobCard;

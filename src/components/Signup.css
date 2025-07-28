@@ -15,8 +15,8 @@
 }
 
 .signup-left img {
-  width: 80%;
-  max-width: 350px;
+  width: auto;
+  height: 450px;
   border-radius: 50%;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 }
