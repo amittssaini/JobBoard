@@ -12,28 +12,27 @@ const Login = () => {
         email:"",
         password:""
     })
-    const validateInput = (data) => {
 
+    /* for the vaidate the input field */
+    const validateInput = (data) => {
     if(data.username==="")
     {
-     enqueueSnackbar("Username is a required field")
+     enqueueSnackbar("Username is a required field",{variant:"error"})
      return false;
     }
-    
-     
      else if(data.password==="")
      {
-       enqueueSnackbar("Password is a required field");
+       enqueueSnackbar("Password is a required field",{variant:"error"});
      return false;
    }
    return true;
   };
 
+  // pass the form data to the backend
 const login=async(formData)=>{
-    if(!validateInput(formData)){
+    if(!validateInput(formData)){   // for the validation 
           return;
           }
-    
         try {
            let response =await axios.post(`${config.endpoint}/auth/login`, {
             email: formData.email,
@@ -43,19 +42,15 @@ const login=async(formData)=>{
             email: "",
             password: "",
           });
-          console.log(response);
+         // console.log(response);
          console.log(response.data);
          const name = response.data.user.name;
          const email = response.data.user.email;
-         console.log(name);
-         console.log(email);
-        //  let userData = response.data
-        // persistLogin(userData.token,userData.username,userData.balance);
-    
-          enqueueSnackbar("Logged in successfully", { variant: "success" });
-        //   setIsLoading(false);
-             navigate("/dashboard",{state:{name,email}});
-        //   history.push("/");
+        //  console.log(name);
+        //  console.log(email);
+        enqueueSnackbar("Logged in successfully", { variant: "success" });
+        navigate("/dashboard",{state:{name,email}});
+       
           
         } catch (e) {
          // setIsLoading(false);
@@ -74,11 +69,7 @@ const login=async(formData)=>{
         }
 
 }
-const persistLogin = (token, username, balance) => {
-    localStorage.setItem('username',username);
-    localStorage.setItem('token',token);
-    localStorage.setItem('balance',balance);
-  };
+
 const handleFormInput = (e) => {
     const [key, value] = [e.target.name, e.target.value];
     setFormData({ ...formData, [key]: value });

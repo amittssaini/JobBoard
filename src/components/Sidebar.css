@@ -1,11 +1,11 @@
 .sidebar {
-  background-color: #2a3144; /* your design spec */
+  background-color: #2a3144; 
   color: white;
   width: 250px;
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;
-    position: sticky;      /*  stick while scrolling */
+    position: sticky;      /*  stick */
   top: 60px;             /* height of  navbar */
   height: calc(100vh - 70px); /* full height minus navbar */
 }
@@ -22,7 +22,7 @@
 
 .profile-card p {
   font-size: 14px;
-  color: #b0b8c2; /* lighter grey */
+  color: #b0b8c2; 
 }
 
 .sidebar-menu {

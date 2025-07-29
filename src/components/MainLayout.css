@@ -9,13 +9,13 @@
   display: flex;
   flex: 1;
   gap: 2rem;
-/*  background-color: #2a3144;  your non-neon dark blue */
+
 }
 
 /* Sidebar takes up fixed width, HomePage takes the rest */
 .layout-body > *:first-child {
-  width: 250px; /* Adjust as needed */
-  background-color: #1f2533; /* Sidebar background, can be different */
+  width: 250px; 
+  background-color: #1f2533; 
 }
 
 .layout-body > *:last-child {

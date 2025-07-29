@@ -4,7 +4,7 @@ import './Signup.css'
 import { enqueueSnackbar } from 'notistack';
 import { config } from '../App';
 import axios from 'axios';
-import { useHistory,Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Signup = () => {
     const [formData,setFormData]=useState({
         firstName:"",
@@ -21,33 +21,33 @@ const validateInput = (data) => {
     console.log("in the validate function ")
     if(data.firstName==="")
    {
-    enqueueSnackbar("First Name is a required field")
+    enqueueSnackbar("First Name is a required field",{variant:"error"})
     return false;
    }
    else if(data.lastName==="")
    {
-    enqueueSnackbar("Last Name is a required field")
+    enqueueSnackbar("Last Name is a required field",{variant:"error"})
     return false;
    }
    
     else if(data.email==="")
     {
-      enqueueSnackbar("email is a required field");
+      enqueueSnackbar("email is a required field",{variant:"error"});
     return false;
   }
     else if(data.password==="")
     {
-      enqueueSnackbar("Password is a required field");
+      enqueueSnackbar("Password is a required field",{variant:"error"});
     return false;
   }
     else if(data.password.length<5)
     {
-      enqueueSnackbar("Password must be at least 5 characters");
+      enqueueSnackbar("Password must be at least 5 characters",{variant:"error"});
       return false;
     }
     else if(data.password!==data.confirmPassword)
    {
-    enqueueSnackbar( "Password do not match");
+    enqueueSnackbar( "Password do not match",{variant:"error"});
     return false;
    }
      return true;
@@ -63,7 +63,7 @@ const validateInput = (data) => {
           }
         console.log("heyy its true");
         try {
-        //   setIsLoading(true); // circular progess start rotating 
+  
           await axios.post(`${config.endpoint}/auth/register`, {
             firstName: formData.firstName,
             lastName:formData.lastName,
@@ -80,7 +80,7 @@ const validateInput = (data) => {
           });
           enqueueSnackbar("Registed successfully", { variant: "success" });
  
-          navigate("/");
+          navigate("/",{replace:true});
         } catch (e) {
 
           if (e.response && e.response.status === 400) {
@@ -142,7 +142,7 @@ const validateInput = (data) => {
             <label>
               <input type="checkbox" /> Remember me
             </label>
-            <a href="#">Forgot Password?</a>
+           
           </div>
 
           <button className="register-btn" type='submit'  >Register</button>
@@ -151,8 +151,8 @@ const validateInput = (data) => {
         <div className="or-section">OR</div>
 
         <div className="social-buttons">
-          <button className="google-btn">Sign-Up with Google</button>
-          <button className="facebook-btn">Sign with Facebook</button>
+          <button className="google-btn" disabled>Sign-Up with Google</button>
+          <button className="facebook-btn" disabled>Sign with Facebook</button>
         </div>
       </div>
     </div>

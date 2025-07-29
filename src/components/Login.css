@@ -51,7 +51,7 @@
 }
 
 .role-toggle .active {
-    /* background: linear-gradient(to right, #1e2a38, #2e3a4f); */
+   
   background-color: #2a3144;
   color:white;
   cursor: pointer;

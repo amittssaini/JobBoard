@@ -1,6 +1,14 @@
 import linkdin from "../assets/linkdin.png";
 import naukari from "../assets/naukari.png";
 import hr from "../assets/hr.png";
+
+
+/* 
+here we design the hardcore data for cards job 
+and one for the hiring team 
+*/
+
+
 const jobs = [
   {
     title: "UX/UI Designer",

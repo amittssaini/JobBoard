@@ -8,15 +8,15 @@ import JobList from './JobList';
 
 const MainLayout = () => {
   const location = useLocation();
-  const { name, email } = location.state || {};
-  const [activeTab,setActiveTab]=useState("job")
+  const { name, email } = location.state || {};  // that is used for the get the state props from login component
+  const [activeTab,setActiveTab]=useState("job") // current active tab is openjob
 
   return (
     <div className="layout-wrapper">
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
       <div className="layout-body">
         <Sidebar name={name} email={email} />
-        {(activeTab==="job")?<JobList />:<Home/>}
+        {(activeTab==="job")?<JobList />:<Home/>}  
       </div>
     </div>
   );

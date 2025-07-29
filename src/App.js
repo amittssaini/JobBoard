@@ -1,13 +1,11 @@
-import Home from "./components/Home";
+
 import Login from "./components/Login";
 import MainLayout from "./components/MainLayout";
-import Navbar from "./components/Navbar";
 import ResetPassword from "./components/ResetPassword";
-import Sidebar from "./components/Sidebar";
 import Signup from "./components/Signup";
-import { Routes,Route } from "react-router-dom";
+import { Routes,Route } from "react-router-dom";  // for the SPA (SINGLE PAGE APPLICATION )
 export const config = {
-  endpoint: `https://job-backend-fh80.onrender.com/job`,
+  endpoint: `https://job-backend-fh80.onrender.com/job`,  // backend URL 
 };
 function App() {
   return (

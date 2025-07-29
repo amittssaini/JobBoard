@@ -2,7 +2,7 @@ import React from 'react';
 import { FaSearch, FaHeart, FaBriefcase, FaTachometerAlt, FaUserCircle } from 'react-icons/fa';
 import './Sidebar.css';
 
-const Sidebar = ({name,email}) => {
+const Sidebar = ({name,email}) => {  // props of email and name for the profile setup 
   return (
     <div className="sidebar">
       <div className="profile-card">

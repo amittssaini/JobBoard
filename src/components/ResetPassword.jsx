@@ -12,8 +12,10 @@ const ResetPassword = () => {
         confirmPassword:""
     })
     const navigate = useNavigate();
- const validateInput = (data) => {
-    // console.log("in the validate ",data);
+
+
+ /* This method is used for the validation for input form and return the true/false*/    
+   const validateInput = (data) => {
     if(data.email==="")
     {
      enqueueSnackbar("Email is a required field",{variant:"error"})
@@ -40,10 +42,12 @@ const ResetPassword = () => {
         enqueueSnackbar("Password and Confirm Password Should match",{variant:"error"});
         return false;
     }
-   return true;
+   return true; // if all the valid then pass true 
   };
+
+  /* In this method we pass the form data to the backend with the help of axios and react acc to the response of backend given */
     const postResetPassword=async(data)=>{
-        console.log(data);
+        //console.log(data);
         if(!validateInput(data)) { return} ;
         try {
             let response =await axios.post(`${config.endpoint}/auth/forgetPassword`, {
@@ -62,7 +66,7 @@ const ResetPassword = () => {
            if(response.status==200)
            {
             enqueueSnackbar(response.data.message,{variant:"success"})
-            navigate('/');
+            navigate('/',{replace:true});  // navigate to the login page 
            }
         } catch (error) {
            if(error.status==404){
@@ -121,8 +125,6 @@ const ResetPassword = () => {
               onChange={handleFormInput}
             />
           </div>
-
-          {/* Confirm Password */}
           <div className="form-group">
             <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
             <input

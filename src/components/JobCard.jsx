@@ -1,7 +1,6 @@
 import React from "react";
 import "./JobCard.css";
-import indeed from "../assets/indeed.png";
-import linkdin from "../assets/linkdin.png"
+
 import { FaCheck, FaHeart, FaCalendarAlt, FaMapMarkerAlt,FaUserCircle, FaFlag } from "react-icons/fa";
 
 const JobCard = ({ job }) => {
@@ -30,7 +29,7 @@ const JobCard = ({ job }) => {
         <img src={job.logo} alt="logo" className="job-logo" />
       </div>
 
-      {/* Row 2: Calendar + Report Button */}
+      {/* Row 2: Calendar days + Report Button */}
       <div className="meta-row">
         <span className="tag">
           <FaCalendarAlt className="icon" /> {job.posted}
