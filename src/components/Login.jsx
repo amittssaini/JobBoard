@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import axios from 'axios'
 import { useSnackbar } from "notistack";
 import loginImage from "../assets/signup.png"; // replace with your man image path
@@ -90,7 +90,7 @@ const handleFormInput = (e) => {
   }
   return (
     <div className="login-container">
-      {/* Form on the left */}
+   
       <div className="login-left">
         <h2 className="login-title">Welcome to the Nottingham Building Society</h2>
         <p className="login-subtitle">If you already have an account, please sign in below.</p>
@@ -115,7 +115,7 @@ const handleFormInput = (e) => {
             <label>
               <input type="checkbox" /> Remember me
             </label>
-            <a href="#">Forgot Password?</a>
+            <Link to="/resetPassword">Forget Password</Link>
           </div>
 
           <button type="submit" className="login-btn">Login</button>
